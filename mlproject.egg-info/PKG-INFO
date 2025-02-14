@@ -1,0 +1,11 @@
+Metadata-Version: 2.2
+Name: mlproject
+Version: 0.0.1
+Summary: Ml Ops Project
+Author: Kevin Kam
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: seaborn
+Dynamic: author
+Dynamic: requires-dist
+Dynamic: summary
