@@ -1,4 +1,5 @@
 import os, sys
+from src.config.artifact_entities import DataIngestionArtifact
 from src.exception.exception import MLException
 from src.logging.logger import logging
 
@@ -13,7 +14,7 @@ class DataIngestion:
     def __init__(self):
         self.ingestion_config = DataIngestionConfig()
 
-    def initiate_data_ingestion(self):
+    def initiate_data_ingestion(self) -> DataIngestionArtifact:
         logging.info('Data Ingestion method started')
         try:
             file_path = os.path.join(DATA_DIR, FILE_NAME)
@@ -28,11 +29,12 @@ class DataIngestion:
             test_set.to_csv(self.ingestion_config.test_data_path, index=False, header=True)
             logging.info('Ingestion of data is completed')
             
-            return (
-                self.ingestion_config.train_data_path, 
-                self.ingestion_config.test_data_path, 
-                self.ingestion_config.raw_data_path
+            artifact = DataIngestionArtifact(
+                train_data_path=self.ingestion_config.train_data_path,
+                test_data_path=self.ingestion_config.test_data_path,
+                raw_data_path=self.ingestion_config.raw_data_path
             )
+            return artifact
         except Exception as e:
             raise MLException(e, sys)
         

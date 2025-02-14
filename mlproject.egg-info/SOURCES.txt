@@ -11,6 +11,7 @@ src/components/data_ingestion.py
 src/components/data_transformation.py
 src/components/model_trainer.py
 src/config/__init__.py
+src/config/artifact_entities.py
 src/config/config_entities.py
 src/constants/__init__.py
 src/constants/training_pipeline/__init__.py
