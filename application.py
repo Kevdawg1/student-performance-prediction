@@ -13,13 +13,13 @@ from src.config.artifact_entities import InputDataArtifact
 from src.pipeline.predict_pipeline import PredictPipeline
 from src.exception.exception import MLException
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route('/', methods=['GET'])
+@application.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
-@app.route('/predict', methods=['GET','POST'])
+@application.route('/predict', methods=['GET','POST'])
 def predict_math_score():
     
     ## Form unsubmitted
@@ -52,4 +52,4 @@ def predict_math_score():
         except Exception as e:
             raise MLException(e, sys)
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    application.run(host='0.0.0.0', port=5000)
