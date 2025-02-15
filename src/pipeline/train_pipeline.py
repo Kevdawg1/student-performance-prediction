@@ -27,12 +27,4 @@ class TrainPipeline:
             raise MLException(e, sys)
 
 if __name__ == "__main__":
-    data_ingestion = DataIngestion()
-    data_ingestion_artifact = data_ingestion.initiate_data_ingestion()
-    
-    data_transformation = DataTransformation(data_ingestion_artifact=data_ingestion_artifact)
-    data_transformation_artifact = data_transformation.initiate_data_transformation()
-    
-    model_trainer = ModelTrainer(data_transformation_artifact=data_transformation_artifact)
-    r2_score = model_trainer.initiate_model_trainer()
-    print(r2_score)
+    TrainPipeline().run_pipeline()
