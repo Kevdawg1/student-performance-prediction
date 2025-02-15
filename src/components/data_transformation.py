@@ -22,6 +22,13 @@ class DataTransformation:
         self.data_transformation_config.preprocessor_object_file_path = os.path.join(ARTIFACT_DIR, PREPROCESSING_OBJECT_FILE_NAME)
 
     def get_data_transformer_object(self):
+        """
+        This function returns a preprocessor object.
+        This preprocessor object will be used to transform the numerical and categorical columns.
+        The numerical columns will be imputed using the median of the column and then scaled using StandardScaler.
+        The categorical columns will be imputed using the most frequent value in the column and then scaled using StandardScaler(with_mean=False).
+        The preprocessor object is then used to transform the data.
+        """
         try:
             df = pd.read_csv(self.data_ingestion_artifact.raw_data_path)
             df = df.drop(columns=[TARGET_COLUMN], axis=1)
@@ -68,6 +75,10 @@ class DataTransformation:
             raise MLException(e, sys)
         
     def separate_input_and_outputs(self, data):
+        """
+        This method takes a pandas DataFrame as an argument and separates it into input
+        features and output features.
+        """
         try:
             input_features = data.drop(TARGET_COLUMN, axis=1)
             output_features = data[TARGET_COLUMN]
