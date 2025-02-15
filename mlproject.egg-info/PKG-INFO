@@ -10,6 +10,7 @@ Requires-Dist: matplotlib
 Requires-Dist: scikit-learn
 Requires-Dist: xgboost
 Requires-Dist: dill
+Requires-Dist: flask
 Dynamic: author
 Dynamic: requires-dist
 Dynamic: summary

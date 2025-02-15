@@ -27,6 +27,7 @@ class ModelTrainer:
         
     def initiate_model_trainer(self):
         try:
+            logging.info("Model trainer initiated")
             logging.info("Splitting Training and Test Data")
             train_arr = self.data_transformation_artifact.train_arr
             test_arr = self.data_transformation_artifact.test_arr
