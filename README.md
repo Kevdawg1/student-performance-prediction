@@ -111,9 +111,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 * [![Python][Python]][Python]
 * [![Conda][Conda]][Conda]
-* Ngrok
-* Ollama
-
+  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -131,13 +129,6 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   python -m pip install --upgrade pip
   ```
-* Ollama - Linux
-  ```sh
-  curl -fsSL https://ollama.com/install.sh | sh
-  ```
-* Ollama - macOS and Windows: https://ollama.com/download
-* Slack: https://slack.com/intl/en-gb/downloads
-* Slack API: https://api.slack.com/apps
 
 ### Installation
 
@@ -155,15 +146,7 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    pip install -r requirements.txt
    ```
-4. Configure environment variables in a .env file
-   ```
-   SLACK_BOT_TOKEN="xoxp-********"
-   SLACK_SIGNING_SECRET="********"
-   DEEPSEEK_API_URL="http://localhost:11434/api/chat"
-   BOT_USER_ID="U0*******"
-   CHANNEL_ID="C0*******""
-   ```
-5. Change git remote url to avoid accidental pushes to base project
+4. Change git remote url to avoid accidental pushes to base project
    ```sh
    git remote set-url origin github_username/repo_name
    git remote -v # confirm the changes
