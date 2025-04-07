@@ -3,3 +3,4 @@ mlproject.egg-info
 logs/
 artifacts/
 .env/
+env_azure.yaml
