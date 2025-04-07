@@ -15,16 +15,18 @@ from src.exception.exception import MLException
 
 application = Flask(__name__)
 
-@application.route('/', methods=['GET'])
+app = application
+
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
-@application.route('/predict', methods=['GET','POST'])
+@app.route('/predict', methods=['GET','POST'])
 def predict_math_score():
     
     ## Form unsubmitted
     if request.method == 'GET':
-        return render_template('home.html')
+        return render_template('form.html', results=None)
     
     ## Form submitted
     else:
@@ -48,8 +50,9 @@ def predict_math_score():
             input_data_df = input_data.get_data_as_dataframe()
             predict_pipeline = PredictPipeline()
             predictions = predict_pipeline.predict(input_data_df)
-            return render_template('home.html',  results=predictions[0])
+            score = predictions[0].round(2)
+            return render_template('form.html',  results=score)
         except Exception as e:
             raise MLException(e, sys)
 if __name__ == "__main__":
-    application.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=80, debug=True)

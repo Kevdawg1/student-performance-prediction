@@ -1,0 +1,114 @@
+<head>
+   <link rel="stylesheet" href="./static/styles.css" />
+</head>
+<main id="main" class="container">
+   <div class="row">
+      <div class="col-xs-12 col-lg-offset-3 col-lg-6">
+         <div class="m-b-md text-center">
+            <h1 id="title">Student Exam Performance Indicator</h1>
+            <p id="description" class="description" class="text-center">Predict your math score.</p>
+         </div>
+         {% if results is none %}
+         <form method="POST" action="" id="survey-form" name="survey-form">
+            <fieldset>
+               <label for="gender" id="gender">
+                  Gender *
+               </label>
+               <select class="m-t-xs" name="gender" id="gender" placeholder="Enter your gender" required>
+                  <option class="placeholder" selected disabled value="">Select your gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+               </select>
+            </fieldset>
+            <fieldset>
+               <label for="ethnicity" id="ethnicity">
+                  Race or Ethnicity *
+               </label>
+               <select class="m-t-xs" name="ethnicity" id="ethnicity" placeholder="Enter your ethnicity" required>
+                  <option class="placeholder" selected disabled value="">Select Ethnicity</option>
+                  <option value="group A">Group A</option>
+                  <option value="group B">Group B</option>
+                  <option value="group C">Group C</option>
+                  <option value="group D">Group D</option>
+                  <option value="group E">Group E</option>
+               </select>
+            </fieldset>
+            <fieldset>
+               <label for="parental_level_of_education" id="number-label">
+                  Parental Level of Education *
+               </label>
+               <select class="m-t-xs" name="parental_level_of_education" placeholder="Enter you Parent Education"
+                  required>
+                  <option class="placeholder" selected disabled value="">Select Parent Education</option>
+                  <option value="associate's degree">
+                     Associate's Degree
+                  </option>
+                  <option value="bachelor's degree">
+                     Bachelor's Degree
+                  </option>
+                  <option value="high school">
+                     High School
+                  </option>
+                  <option value="master's degree">
+                     Master's Degree
+                  </option>
+                  <option value="some college">
+                     Some College
+                  </option>
+                  <option value="some high school">
+                     Some High School
+                  </option>
+               </select>
+            </fieldset>
+            <fieldset>
+               <label for="lunch">
+                  Lunch Type *
+                  <select id="lunch" name="lunch" class="m-t-xs" placeholder="Enter your lunch type" required>
+                     <option class="placeholder" selected disabled value="">Select your lunch type</option>
+                     <option value="free/reduced">free/reduced</option>
+                     <option value="standard">standard</option>
+                  </select>
+               </label>
+            </fieldset>
+            <fieldset>
+               <label for="test_preparation_course">
+                  Did you complete the test course? *
+                  <select id="test_preparation_course" name="test_preparation_course" class="m-t-xs"
+                     placeholder="Enter your course" required>
+                     <option class="placeholder" selected disabled value="">Did you complete the test course?</option>
+                     <option value="none">None</option>
+                     <option value="completed">Completed</option>
+                  </select>
+               </label>
+            </fieldset>
+            <fieldset>
+               <label for="reading_score">
+                  What was your reading score (/100)? *
+                  <input class="" type="number" id="reading_score" name="reading_score"
+                     placeholder="Enter your reading score" min='0' max='100' required />
+               </label>
+            </fieldset>
+            <fieldset>
+               <label for="writing_score">
+                  What was your writing score (/100)? *
+                  <input class="" type="number" id="writing_score" name="writing_score"
+                     placeholder="Enter your writing score" min='0' max='100' required />
+               </label>
+            </fieldset>
+            <button id="submit" type="submit" class="btn">Predict your Math Score</button>
+         </form>
+         {% else %}
+         <div class="m-b-md text-center">
+            <h1 class="text-center m-b-md">
+               Your math score prediction is {{results}}
+            </h1>
+         </div>
+         
+         {% endif %}
+         
+         <div class="copyright m-t-sm">
+            <div>By Kevin Kam</div>
+         </div>
+      </div>
+   </div>
+</main>
